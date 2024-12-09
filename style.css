@@ -21,16 +21,34 @@ a:hover {
 }
 
 div#conteudo-principal {
-    margin: 200px auto 10px auto;
+    display: block;
+    margin: 200px auto 0px auto;
+    height: 800px;
+    min-width: 400px;
+    max-width: 790px;
 }
 
-div#conteudo-principal
+div#conteudo-principal video {
+    width: 400px;
+    margin-top: 250px;
+    display: block;
+    float: left;
+    will-change: transform; 
+    transform: translateZ(0); 
+    outline: none;
+    border: none;
+    user-select: none; 
+    pointer-events: none; 
+    outline: none;
+}
 
 main {
+    display: block;
+    float: right;
     border: 1px solid var(--cor0);
     width: 348px;
     height: 472.99px;
-    margin: 45px auto 10px auto;
+    margin: 220px auto 10px auto;
     padding: 10px;
 }
 
@@ -47,6 +65,12 @@ main > fieldset > legend > span#ou {
     font-size: 13px;
 }
 
+main img#logo {
+    width: 175px;
+    display: block;
+    margin: 20px auto;
+}
+
 main > form > input {
     text-align: left;
     margin: 3px;
@@ -60,7 +84,7 @@ main > form > input#inicar-sessao {
 
 main > div#sessao-facebook span {
     color: rgb(3, 149, 246);
-    font-weight: bold;
+    font-weight: 600;
     font-size: 14.5px;
     vertical-align: middle;
     margin-top: -20px;
@@ -92,7 +116,7 @@ aside#principal {
     border: 1px solid var(--cor0);
     width: 348px;
     height: 41px;
-    margin: 10px auto 10px auto;
+    margin: 70px 0px 0px -10px;
     padding: 10px;
 }
 
@@ -108,8 +132,9 @@ aside#principal a {
 }
 
 aside#secundario p {
-    font-size: 16px;
+    font-size: 15px;
     color: black;
+    margin-bottom: 15px;
 }
 
 aside#secundario img {
@@ -117,7 +142,8 @@ aside#secundario img {
 }
 
 footer {
-    margin-top: 50%;
+    margin-top: 30%;
+    clear: both;
 }
 
 footer a {
@@ -128,12 +154,6 @@ footer a {
 footer select {
     border: none;
     margin-right: 13px;
-}
-
-.logo {
-    width: 175px;
-    display: block;
-    margin: auto;
 }
 
 .input-formulario {

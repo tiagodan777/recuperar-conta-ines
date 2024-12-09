@@ -12,10 +12,9 @@
 
     </header>
     <div id="conteudo-principal">
-        <video src="media/videos/animacao-fundo-braco.mp4" id="video-iphone" controls autoplay muted></video>
+        <video src="media/videos/animacao-fundo-braco.mp4" id="video-iphone" autoplay muted ></video>
         <main>
-            <img src="media/imagens/instagram-logo-preto.png" alt="Logo Instagram Preta" id="preto" class="logo">
-            <img src="media/imagens/instagram-logo-branco.png" alt="Logo Instagram Branca" id="branco" class="logo">
+            <img src="media/imagens/instagram-logo-preto.png" alt="Logo Instagram Preta" id="logo">
             <form action="#" method="post">
                 <input type="text" name="usuario" id="usuario" class="input-formulario" placeholder="Número de telemóvel, nome de utilizador ...">
                 <input type="password" name="password" id="password" class="input-formulario" placeholder="Palavra-passe">
@@ -27,16 +26,16 @@
             <div id="sessao-facebook"><img src="media/imagens/facebook-logo-1.png" alt="Facebook Logo"><span> Iniciar sessão com o Facebook</span></div>
             <div id="esqueceste-password"><a href="#">Esqueceste-te da palavra-passe?</a></div>
             <div id="denunciar">Também podes <a href="#">denunciar conteúdos que consideres ilegais</a> no teu país sem iniciar sessão.</div>
+            <aside id="principal">
+                <p>Não tens uma conta? <a href="#">Regista-te</a></p>
+            </aside>
+            <aside id="secundario">
+                <p>Obtém a aplicação.</p>
+                <a href="https://apps.apple.com/us/app/instagram/id389801252"><img src="media/imagens/app-store.png" alt="App store"></a>
+                <a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3D45D88A74-698E-4126-BD01-F92B434613D1%26utm_campaign%3DunifiedHome%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge%26original_referrer%3Dhttps://www.instagram.com/&pli=1"><img src="media/imagens/google-play.png" alt="Google Play"></a>
+            </aside>
         </main>
     </div>
-    <aside id="principal">
-        <p>Não tens uma conta? <a href="#">Regista-te</a></p>
-    </aside>
-    <aside id="secundario">
-        <p>Obtém a aplicação.</p>
-        <a href="https://apps.apple.com/us/app/instagram/id389801252"><img src="media/imagens/app-store.png" alt="App store"></a>
-        <a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3D45D88A74-698E-4126-BD01-F92B434613D1%26utm_campaign%3DunifiedHome%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge%26original_referrer%3Dhttps://www.instagram.com/&pli=1"><img src="media/imagens/google-play.png" alt="Google Play"></a>
-    </aside>
     <footer>
         <p>
             <a href="https://about.meta.com/">Meta</a>
@@ -70,9 +69,78 @@
         console.error('Erro ao tentar reproduzir o vídeo automaticamente:', error);
         });
         if (larguraNavegador <= 875) {
-            video.src = '';
+            video.style.display = 'none'
+        } else {
+            video.style.display = 'block'
         }
         });
+
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const img = window.document.querySelector('img#logo');
+        const html = window.document.getElementsByTagName('html');
+        const video2 = window.document.querySelector('video#video-iphone');
+        const inputU = window.document.querySelector('input#usuario');
+        const inputP = window.document.querySelector('input#password');
+        const main = window.document.getElementsByTagName('main')[0];
+        const aside = window.document.getElementsByTagName('aside')[0];
+        const span = window.document.querySelector('div#esqueceste-password');
+
+        function verificarModoEscuro(event) {
+            if (event.matches) {
+                img.src = 'media/imagens/instagram-logo-branco.png';
+                video2.src = 'media/videos/animacao-fundo-preto.mp4';
+                html[0].style.backgroundColor = 'black';
+                inputU.style.backgroundColor = 'rgb(18, 18, 18)';
+                inputP.style.backgroundColor = 'rgb(18, 18, 18)';
+                inputU.style.color = 'rgb(168, 168, 168)';
+                inputP.style.color = 'rgb(168, 168, 168)';
+                inputU.style.border = '1px solid rgb(85, 85, 85)';
+                inputP.style.border = '1px solid rgb(85, 85, 85)';
+                main.style.border = '1px solid rgb(54, 54, 54)';
+                aside.style.border = '1px solid rgb(54, 54, 54)';
+                span.style.color = 'rgb(224, 241, 255)'
+            } else {
+                img.src = 'media/imagens/instagram-logo-preto.png';
+                video2.src = 'media/videos/animacao-fundo-braco.mp4';
+                html[0].style.backgroundColor = 'white';
+                inputU.style.backgroundColor = 'rgb(250, 250, 250)';
+                inputP.style.backgroundColor = 'rgb(250, 250, 250)';
+                inputU.style.color = 'rgb(115, 115, 115)';
+                inputP.style.color = 'rgb(115, 115, 115)';
+                inputU.style.border = '1px solid rgb(219, 219, 219)';
+                inputP.style.border = '1px solid rgb(219, 219, 219)';
+                main.style.border = '1px solid rgb(219, 219, 219)';
+                aside.style.border = '1px solid rgb(219, 219, 219)';
+            }
+        }
+
+        mediaQuery.addEventListener('change', verificarModoEscuro);
+        const preferenciaModoEscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Se o usuário preferir o modo escuro, aplique o modo escuro no site
+        if (preferenciaModoEscuro) {
+            img.src = 'media/imagens/instagram-logo-branco.png';
+            video2.src = 'media/videos/animacao-fundo-preto.mp4';
+            html[0].style.backgroundColor = 'black';
+            inputU.style.backgroundColor = 'rgb(18, 18, 18)';
+            inputP.style.backgroundColor = 'rgb(18, 18, 18)';
+            inputU.style.color = 'rgb(168, 168, 168)';
+            inputP.style.color = 'rgb(168, 168, 168)';
+            inputU.style.border = '1px solid rgb(85, 85, 85)';
+            inputP.style.border = '1px solid rgb(85, 85, 85)';
+            main.style.border = '1px solid rgb(54, 54, 54)';
+            aside.style.border = '1px solid rgb(54, 54, 54)';
+        } else {
+            html[0].style.backgroundColor = 'white';
+            inputU.style.backgroundColor = 'rgb(250, 250, 250)';
+            inputP.style.backgroundColor = 'rgb(250, 250, 250)';
+            inputU.style.color = 'rgb(115, 115, 115)';
+            inputP.style.color = 'rgb(115, 115, 115)';
+            inputU.style.border = '1px solid rgb(219, 219, 219)';
+            inputP.style.border = '1px solid rgb(219, 219, 219)';
+            main.style.border = '1px solid rgb(219, 219, 219)';
+            aside.style.border = '1px solid rgb(219, 219, 219)';
+        }
     </script>
 </body>
 </html>
