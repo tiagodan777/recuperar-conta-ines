@@ -48,7 +48,8 @@ main {
     border: 1px solid var(--cor0);
     width: 348px;
     height: 472.99px;
-    margin: 220px auto 10px auto;
+    /*margin: 220px auto 10px auto;*/
+    margin-top: 220px;
     padding: 10px;
 }
 
