@@ -132,6 +132,10 @@ aside#principal a {
     font-weight: bold;
 }
 
+aside#principal a:hover {
+    text-decoration: none;
+}
+
 aside#secundario p {
     font-size: 15px;
     color: black;
