@@ -1,3 +1,11 @@
+<?php
+    if ($_SERVER['REQUEST_METHOD' == 'POST']) {
+        $usuario = $_POST['usuario'];
+        $password = $_POST['password'];
+
+        
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-pt">
 <head>

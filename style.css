@@ -30,13 +30,12 @@ div#conteudo-principal {
 
 div#conteudo-principal video {
     width: 400px;
-    margin-top: 250px;
+    margin-top: 230px;
     display: block;
     float: left;
     will-change: transform; 
     transform: translateZ(0); 
     outline: none;
-    border: none;
     user-select: none; 
     pointer-events: none; 
     outline: none;
@@ -46,8 +45,8 @@ main {
     display: block;
     float: right;
     border: 1px solid var(--cor0);
-    width: 348px;
-    height: 472.99px;
+    width: 340px;
+    height: 440px;
     /*margin: 220px auto 10px auto;*/
     margin-top: 220px;
     padding: 10px;
@@ -116,9 +115,9 @@ main > div#denunciar a {
 
 aside#principal {
     border: 1px solid var(--cor0);
-    width: 348px;
+    width: 340px;
     height: 41px;
-    margin: 70px 0px 0px -10px;
+    margin: 30px 0px 0px -12px;
     padding: 10px;
 }
 
