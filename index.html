@@ -12,7 +12,7 @@
 
     </header>
     <div id="conteudo-principal">
-        <video src="media/videos/animacao-fundo-braco.mp4" id="video-iphone" autoplay muted ></video>
+        <video src="" id="video-iphone" autoplay muted ></video>
         <main>
             <img src="media/imagens/instagram-logo-preto.png" alt="Logo Instagram Preta" id="logo">
             <form action="#" method="post">
@@ -77,7 +77,8 @@
         const p = window.document.querySelector('p#p-dentro-do-aside');
         const input = window.document.querySelector('input#password');
         const select = window.document.querySelector('select#select');
-        let preto = 0
+        let preto = 0;
+        let existe = 0;
 
         window.addEventListener('resize', () => {
         const larguraNavegador = window.innerWidth;
@@ -90,11 +91,22 @@
         if (larguraNavegador <= 875) {
             video.style.display = 'none'
             main.style.float = 'none';
-            main.style.margin = '220px auto 10px auto'
+            main.style.position = 'absolute';
+            main.style.top = '40%';
+            main.style.left = '50%';
+            main.style.transform = 'translate(-50%, -50%)';
         } else {
-            video.style.display = 'block'
+            if (video.src == '') {
+                video.src = 'media/videos/animacao-fundo-braco.mp4';
+                video.play();
+            }
+            video.style.display = 'block';
+            video.style.float = 'left'
             main.style.float = 'right';
-            main.style.margin = '220px auto 10px auto'
+            main.style.position = 'relative';
+            main.style.top = '';
+            main.style.left = '';
+            main.style.transform = '';
         }
         });
 
@@ -209,6 +221,29 @@
             }
         }
         });
+
+        function toggleVideoSrc() {
+            const video1 = document.getElementById('video-iphone');
+            const videoSrc = "media/videos/animacao-fundo-braco.mp4"; // Substitua pelo caminho do seu vídeo
+
+            if (window.innerWidth > 875) {
+                if (video1.src !== videoSrc) {
+                    video1.src = videoSrc; // Define a fonte do vídeo
+                    video1.load(); // Recarrega o vídeo com a nova fonte
+                }
+            } else {
+                if (video1.src) {
+                    video1.removeAttribute('src'); // Remove a fonte do vídeo
+                    video1.load(); // Para de carregar o vídeo
+                }
+            }
+        }
+
+        // Executa a função quando a página é carregada
+        window.onload = toggleVideoSrc;
+
+        // Executa a função sempre que a janela é redimensionada
+        /*window.onresize = toggleVideoSrc;*/
     </script>
 </body>
 </html>

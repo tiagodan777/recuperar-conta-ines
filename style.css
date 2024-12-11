@@ -12,6 +12,11 @@
     color: var(--cor1);
 }
 
+body {
+    height: 98vh;
+    position: relative;
+}
+
 a {
     text-decoration: none;
 }
@@ -21,24 +26,21 @@ a:hover {
 }
 
 div#conteudo-principal {
+    padding: 10px;
+    position: absolute;
+    /*width: 100%;*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: block;
-    margin: 200px auto 0px auto;
-    height: 800px;
-    min-width: 400px;
-    max-width: 790px;
+    height: 650px;
+    min-width: 810px;
 }
 
 div#conteudo-principal video {
     width: 400px;
-    margin-top: 230px;
     display: block;
     float: left;
-    will-change: transform; 
-    transform: translateZ(0); 
-    outline: none;
-    user-select: none; 
-    pointer-events: none; 
-    outline: none;
 }
 
 main {
@@ -48,7 +50,7 @@ main {
     width: 340px;
     height: 440px;
     /*margin: 220px auto 10px auto;*/
-    margin-top: 220px;
+    /*margin-top: 220px;*/
     padding: 10px;
 }
 
@@ -147,8 +149,12 @@ aside#secundario img {
 }
 
 footer {
-    margin-top: 30%;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     clear: both;
+    width: 100%;
 }
 
 footer a {
